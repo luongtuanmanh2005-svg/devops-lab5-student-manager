@@ -2,6 +2,21 @@
 from student import Student
 
 
+def add_student(students, student_id, name, age, grade):
+    """Them sinh vien moi vao danh sach."""
+
+    for s in students:
+        if s.student_id == student_id:
+            print(f"Ma sinh vien {student_id} da ton tai!")
+            return students
+
+    new_student = Student(student_id, name, age, grade)
+    students.append(new_student)
+
+    print(f"Da them sinh vien: {new_student}")
+    return students
+
+
 def main():
     print("=" * 50)
     print("STUDENT MANAGER - DevOps Lab 5")
@@ -13,6 +28,10 @@ def main():
         Student("SV003", "Le Van C", 19, "K21")
     ]
 
+    # Them sinh vien thu 4
+    add_student(students, "SV004", "Pham Thi D", 22, "K19")
+
+    print("\nDANH SACH SINH VIEN:")
     for student in students:
         print(student)
 
